@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+        /*this is my responsive stuff*/
+        @media only screen and (max-width: 600px){
+            p {
+             line-height: 1em;
+             font-size:.7em;
+            
+            }
+        }
+		header{
+			background-color: #FFFFE8;
+            height: 50px;
+            z-index: 99999;
+
+
+		}
+        .navbar{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            width: 100%;
+            position: fixed;
+
+
+        }
+
+        .catagory{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+
+        }
+        
+        .container{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        aside{
+        	background-color:#7FB2F0;
+        	/*float: right;*/
+        	width: 20%;
+        }
+
+        section{
+        	/*float: left;*/
+        	width: 80%;
+        	background-color: #EE7E94;
+        }
+
+		footer{
+			background-color: coral;
+            width: 100%;
+            position: relative;
+
+		}
+
+	</style>
+</head>
+
+<body>
+ <header>
+    <div class="navbar">
+        <div class="logo"><br>
+            <div>LOGO</div>
+        </div>
+        <div class="catagory">
+            <div>Home</div>
+            <div>About</div>
+            <div>Contact</div>
+        </div>
+    </div>
+ </header>
+
+ <main class="container">
+    
+        <section>
+        <h1>My Header</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+
+         <img src="https://picsum.photos/id/299/580/464" alt="">   
+        </section>
+
+        <aside>
+        <h1>Aside</h1>
+        <ul>
+        <li>List Item A</li>
+        <li>List Item B</li>
+        <li>List Item C</li>
+        <li>List Item D</li>
+        <li>List Item E</li>
+        <li>List Item F</li>
+        </ul>
+        </aside>
+   
+ </main>
+ <footer>
+ 	<ul>
+	<li>List Item A</li>
+	<li>List Item B</li>
+	<li>List Item C</li>
+    </ul>
+
+ </footer>
+</body>
+</html>
