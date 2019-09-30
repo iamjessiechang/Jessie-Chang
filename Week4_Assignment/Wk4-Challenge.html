@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+        /*this is my responsive stuff*/
+        @media only screen and (max-width: 600px){
+            p {
+             line-height: 1em;
+             font-size:.7em;
+            
+            }
+        }
+		header{
+			background-color: #FF0000;
+            height: 50px;
+            /*z-index: 99999;*/
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+
+		}
+        .navbar{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+
+        }
+
+        .catagory{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            margin-right: 20px;
+
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+        
+        .container{
+            display: flex;
+            flex-flow: row nowrap;
+            margin-top: 50px;
+        }
+
+        aside{
+        	background-color:#7FB2F0;
+        	/*float: right;*/
+        	width: 20%;
+        }
+
+        section{
+        	/*float: left;*/
+        	width: 80%;
+        	background-color: #EE7E94;
+        }
+
+        .mediabox{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        .pic1{
+            /*display: flex;*/
+            width: 30%;
+        }
+        .pic2{
+            /*display: flex;*/
+            width: 30%;
+        }
+        .pic3{
+            /*display: flex;*/
+            width: 30%;
+        }
+
+        .video{
+            justify-content: center;
+        }
+
+		footer{
+			background-color: coral;
+            width: 100%;
+            position: relative;
+
+		}
+
+	</style>
+</head>
+
+<body>
+ <header>
+    <div class="navbar">
+        <div class="logo">
+            <!-- <br> -->
+            <div>LOGO</div>
+        </div>
+        <div class="catagory">
+            <div>Home</div>
+            <div>About</div>
+            <div>Contact</div>
+        </div>
+    </div>
+ </header>
+
+ <main class="container">
+    
+        <section>
+        <h1>My Header</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+
+        <div class="mediabox">
+            
+            <div class="pic1">
+                <img src="https://picsum.photos/id/299/300/200" alt="Manhattan">  
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+            </div>
+                
+
+            <div class="pic2">
+                <img src="https://picsum.photos/id/1003/300/200" alt="deer"> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p> 
+                
+            </div>
+
+            <div class="pic3">
+                <img src="https://picsum.photos/id/1005/300/200" alt="chill">  
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>  
+            </div>
+            
+        </div>
+
+        <div class="video">
+            <video width="400" height="200" autoplay>
+            <source src="⁨/Users/jessiechang/Desktop/DMDL-Coding/DMDL-CodingforDesigners/Week4_Assignment/winter-walk/winter-walk.mp4" type="video/mp4">
+            </video>
+
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/fZx9Why88ns">
+            </iframe>
+        </div>
+
+          
+        </section>
+
+        <aside>
+        <h1>Aside</h1>
+        <ul>
+        <li>List Item A</li>
+        <li>List Item B</li>
+        <li>List Item C</li>
+        <li>List Item D</li>
+        <li>List Item E</li>
+        <li>List Item F</li>
+        </ul>
+        </aside>
+   
+ </main>
+ <footer>
+ 	<ul>
+	<li>List Item A</li>
+	<li>List Item B</li>
+	<li>List Item C</li>
+    </ul>
+
+ </footer>
+</body>
+</html>
