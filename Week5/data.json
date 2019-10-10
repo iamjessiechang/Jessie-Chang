@@ -1,0 +1,24 @@
+{
+	questions:[
+
+       {
+       	  questions: "what color is the sky?",
+       	  responses:[
+       	  	{
+       	  		reponse: 
+       	  			response: "blue",
+       	  			isCorrect: true
+
+       	  		},
+       	  		{
+       	  			response: "red",
+       	  			isCorrect: false
+       	  		}
+
+       	  		
+       	  	
+       	  ]
+       }
+
+	]
+}
