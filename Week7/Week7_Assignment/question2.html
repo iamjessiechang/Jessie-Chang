@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.correct{
+			background-color: #63EBB8;
+			padding: 5px;
+			width: 10px;
+			height: 10px;
+			border-radius: 10px;}
+
+		.incorrect{
+			background-color: #D6747F;
+			padding: 5px;
+		    width: 20px;
+			height: 20px;
+			border-radius: 10px;}
+
+		body{
+			background-color: #BFBFBF;
+		}
+
+		.card{
+			box-shadow: 6px 7px 3px -4px rgba(0,0,0,0.50);
+			background-color: #FFFFE0;
+		}
+/*
+		.dots{
+			height: 25px;
+			width:25px;
+			border-radius: 25px;
+		}*/
+
+		.style{
+			height: 30px;
+			border-radius: 10px;
+			background-color: #38568E;
+			color: white;
+		}
+
+		.info{
+			display: flex;
+			flex-direction: column;
+			
+		}
+
+		header{
+	    	top: 0;
+	    }
+		footer{
+			bottom: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+		}
+
+		#progressDots{
+			display: flex;
+			flex-direction: row;
+			width: 200px;
+			justify-content: space-between;
+		}
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<h2 id="currentQuestionHeader"></h2>
+	</header>
+	<hr>
+
+	<div class="card" >
+		<p id="questionText"></p>
+		<ol id="listItems"></ol>
+	</div>
+	
+<footer>
+	
+	<div id="info">
+		<div id="progressDots"></div>
+		<a href="http://google.com">View Report</a>
+	</div>
+	<a href="#"><button class="style">Check answers</button></a>
+	
+</footer>
+
+	<script type="text/javascript" src="question2data.js"></script>
+	<script type="text/javascript" src="question2.js"></script>
+	
+</body>
+</html>
