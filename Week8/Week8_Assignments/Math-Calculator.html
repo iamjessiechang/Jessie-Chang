@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    	<title></title>
+    </head>
+    <body>
+    
+    	<input type="text" id="num1"> <span id="operatorBox"></span> <input type="text" id="num2"> = <span id="answerBox"></span>
+    	<div>
+    		<button id="add_btn">+</button><button id="subtract_btn">-</button><button id="divide_btn">÷</button><button id="multiply_btn">×</button>
+    	</div>
+    
+    	<script type="text/javascript">
+    		
+    		// storing operator special charectors so you could easily refence them with dot notatin 
+    		// (ie. opertators.add)
+    		const operators = {
+    			add : "+",
+    			divide: "÷",
+    			multiply: "×",
+    			subtract: "-"
+    		}
+    
+    		// store all of your buttons, input fields, and spans in variables
+    		const numOne = document.querySelector("#num1");
+            const numTwo = document.querySelector("#num2");
+            const operatorBox = document.querySelector("#operatorBox");
+            const answerBox = document.querySelector("#answerBox");
+            const add_btn = document.querySelector("#add_btn");
+            const subtract_btn = document.querySelector("#subtract_btn");
+            const divide_btn = document.querySelector("#divide_btn");
+            const multiply_btn = document.querySelector("#multiply_btn");
+          
+
+    		// create 4 function getSum, getDifference, getProduct, getDivide
+
+            let getSum = (number1, number2) => {
+             return parseFloat(number1) + parseFloat(number2);
+
+            }
+
+            let getSumAnswer = () => {
+                operatorBox.innerHTML = "+";
+                answerBox.innerHTML = getSum(numOne.value, numTwo.value);
+            }
+
+            let getDifference = (number1, number2) => {
+             return parseFloat(number1) - parseFloat(number2);
+
+            }
+
+            let getDifferenceAnswer = () => {
+                operatorBox.innerHTML = "-";
+                answerBox.innerHTML = getDifference(numOne.value, numTwo.value);
+            }
+
+            let getProduct = (number1, number2) => {
+             return parseFloat(number1) * parseFloat(number2);
+
+            }
+
+            let getPrductAnswer = () => {
+                operatorBox.innerHTML = "×";
+                answerBox.innerHTML = getSum(numOne.value, numTwo.value);
+            }
+
+            let getDivide = (number1, number2) => {
+             return parseFloat(number1) / parseFloat(number2);
+
+            }
+
+            let getDivideAnswer = () => {
+                operatorBox.innerHTML = "÷";
+                answerBox.innerHTML = getDivide(numOne.value, numTwo.value);
+            }
+
+    
+    		// add event listners with a click event for all of your buttons and add callback functin name
+
+            add_btn.addEventListener("click", getSumAnswer);
+            subtract_btn.addEventListener("click", getDivideAnswer);
+            divide_btn.addEventListener("click", getDivideAnswer);
+            multiply_btn.addEventListener("click", getPrductAnswer);
+    		
+    
+    
+    	</script>
+    
+    </body>
+    </html>
