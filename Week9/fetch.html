@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	const url = 'https://reqres.in/api/users/';
+	fetch(url, {
+		method: 'POST',
+		headers:{
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			name: 'Jessie Chang',
+			job: 'UX Designer'
+		})
+	})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+		});
+
+		const url = 'https://reqres.in/api/users/';
+		fetch(url, {
+			method: 'POST',
+			headers:{
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name: 'Jessie Chang',
+				job: 'UX Designer'
+			})
+		})
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				console.log(data);
+			});
+</script>
+</body>
+</html>
