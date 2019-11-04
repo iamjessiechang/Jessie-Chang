@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+
+		@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+		
+		h3 {
+			line-height: 1.8em;
+			font-size:1.2em;
+			 font-family: 'Pacifico', cursive;
+		}
+
+		.box{
+			 border-style: solid;
+			 background-color: #97BBFF;
+		}
+
+		#container{
+			width: 400px;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+	</style>
+</head>
+<body>
+
+<div id="container">
+	
+</div>
+
+<button id="get_Title"> Get Films</button>
+<script type="text/javascript">
+
+	const url = 'https://ghibliapi.herokuapp.com/films';
+	fetch(url)
+		
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+
+		
+
+		const name = document.querySelector("#container");
+		
+
+
+	 let getFilms = () => {
+	 	for(i=0 ; i< data.length; i++){
+				const title = document.createElement("h3");
+				title.innerHTML = data[i].title;
+				title.className = "box";
+				name.appendChild(title);
+
+				const director = document.createElement("p");
+				director.innerHTML = data[i].director;
+				director.className = "box";
+				title.appendChild(director);
+
+				const release_date = document.createElement("p");
+				release_date.innerHTML = data[i].release_date;
+				release_date.className = "box";
+				title.appendChild(release_date);
+
+				const rt_score = document.createElement("p");
+				rt_score.innerHTML = data[i].rt_score;
+				rt_score.className = "box";
+				title.appendChild(rt_score);
+
+				
+				// console.log(data[i].title);
+			}
+                
+            }
+
+
+	const get_Title = document.querySelector("#get_Title");
+	get_Title.addEventListener("click", getFilms);
+	});
+
+			
+		
+
+</script>
+</body>
+</html>
