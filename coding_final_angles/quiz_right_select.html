@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+	<title>quiz</title>
+
+	<style type="text/css">
+		
+		/* The side navigation menu */
+	  .sidenav {
+	    height: 100%; /* 100% Full-height */
+	    width: 0; /* 0 width - change this with JavaScript */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Stay on top */
+	    top: 0;
+	    left: 0;
+	    background-color: #111; /* Black*/
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    padding-top: 60px; /* Place content 60px from the top */
+	    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	  }
+
+	  /* The navigation menu links */
+	  .sidenav a {
+	    padding: 8px 8px 8px 32px;
+	    text-decoration: none;
+	    font-size: 18px;
+	    color: #818181;
+	    display: block;
+	    transition: 0.3s;
+	  }
+
+	  /* When you mouse over the navigation links, change their color */
+	  .sidenav a:hover {
+	    color: #f1f1f1;
+	  }
+
+	  /* Position and style the close button (top right corner) */
+	  .sidenav .closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 36px;
+	    margin-left: 50px;
+	  }
+
+	  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	  #main_ {
+	    transition: margin-left .5s;
+	    padding: 20px;
+	  }
+
+	  span{
+	      font:Times New Roman;
+	      font-size: 20px;
+	      color:white;
+	  }
+		body{      
+      	background-image: url("quiz3Background.png");    
+      	background-repeat: no-repeat;
+		/*background-size: cover;*/
+		background-position: center;
+		width: 1440px;
+		height: 600px;
+    }
+    main{
+      position: center;
+    }
+
+    	.img{
+			height: 150px;
+
+		}
+    	 
+
+		#question{
+		
+			width: 150px;
+			height: 40px;
+			border-style: solid;
+			border-radius: 10px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin-top: 500px;
+			margin-left: 650px;
+			
+			
+
+		}
+		#answerzone{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			height: 450px;
+			font-size: 32px;
+			margin: 0px;
+		}
+
+		#selections{
+				width: 160px;
+			height: 80px;
+			border-style: solid;
+			border-radius: 10px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			background-color: rgb(179, 203, 230);
+			box-shadow: 3px 3px rgb(160, 160, 160);
+		}
+
+		.dropdown-content {
+   		 display: none;
+    	position: absolute;
+    	background-color: #f9f9f9;
+    	min-width: 160px;
+    	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    	padding: 12px 16px;
+    	z-index: 1;
+		}
+
+		#acute:hover {
+			color: red
+		}
+		#right:hover {
+			color: red
+		}
+		#obtuse:hover {
+			color: red
+		}
+
+		.dropdown:hover .dropdown-content {
+   		 display: block;
+		}
+
+		#result{
+			text-align: center;
+			font:Comic Sans MS;
+    		font-size: 50px;
+     		color: white;
+     		margin-bottom: 100px;
+			
+		}
+
+		#footer
+		{
+			height: 200px;
+		}
+
+   		#nextpage{
+	      position: fixed;
+	      top: 700px;
+	      left: 1100px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	    #back{
+	      position: fixed;
+	      top: 700px;
+	      left: 200px;
+	      color: white;
+	      font-size: 48px;
+	    }
+
+</style>
+<head id="header">
+</head>
+<body>
+
+	<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="final_project_home.html">Start</a>
+  <a href="video.html">Introduction for angles</a>
+  <a href="angle.html">Play with angles</a>
+  <a href="quiz.html">Quiz</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()">Menu</span>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main_">
+ 	<div id="question">
+ 		<img src="quiz3Right.png" id="acuteangle"  class="img" >
+ 	</div>
+
+ 	<div id="answerzone">
+ 	<div class="dropdown">
+ 		<span id="selections">Selections</span>
+ 		<div class="dropdown-content">
+ 			<p id="acute">Acute Angle</p>
+ 			<p id="right">Right Angle</p>
+ 			<p id="obtuse">Obtuse Angle</p>
+ 		</div>
+ 		<h1 id="result"></h1>
+ 		
+ 	</div>
+ 	</div>
+
+ 	<a href="quiz_obtuse.html" id="nextpage">Next</a>
+   	<a href="quiz_acute.html" id="back">Back</a>
+  
+</div>
+	 
+<script type="text/javascript">
+		
+		
+		const acute = document.querySelector("#acute");
+		const right = document.querySelector("#right");
+		const obtuse = document.querySelector("#obtuse");
+
+		const result = document.querySelector("#result");
+
+		document.getElementById("right").addEventListener("click", myFunction1);
+		function myFunction1(){
+			result.innerHTML = "Correct!!!";
+		}
+		document.getElementById("acute").addEventListener("click", myFunction);
+		function myFunction(){
+			result.innerHTML = "Try again!!!";
+		}
+		document.getElementById("obtuse").addEventListener("click", myFunction);
+		function myFunction(){
+			result.innerHTML = "Try again!!!";
+		}
+
+		/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+	  function openNav() {
+	    document.getElementById("mySidenav").style.width = "250px";
+	    document.getElementById("main").style.marginLeft = "250px";
+	  }
+
+	  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+	  function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	    document.getElementById("main").style.marginLeft = "0";
+	  }
+</script>
+
+
+</body>
+<footer id="footer"></footer>
+</html>

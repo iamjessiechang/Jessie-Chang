@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+
+    /* The side navigation menu */
+    .sidenav {
+      height: 100%; /* 100% Full-height */
+      width: 0; /* 0 width - change this with JavaScript */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Stay on top */
+      top: 0;
+      left: 0;
+      background-color: #111; /* Black*/
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 60px; /* Place content 60px from the top */
+      transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+
+    /* The navigation menu links */
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+    #main {
+      transition: margin-left .5s;
+      padding: 20px;
+    }
+
+    span{
+        font:Times New Roman;
+        font-size: 20px;
+        color:white;
+    }
+    body{      
+      background-image: url("backgroundpic.JPEG");    
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position:center;
+      width:1440px;
+      height:700px; 
+    }
+    .container{
+      display: flex;
+    }
+    .vertical{
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .blackboard{
+      width: 70vw;
+      height: 40vw;
+      margin-left: 15vw;
+      margin-top: 10vw;
+    }
+    .text{
+      color: white;
+    }
+    .title{
+      align-self: flex-start;
+      font:Times New Roman;
+      font-style: italic;
+      font-size: 50px;
+    }
+    .question{
+      font-size: 30px;
+    }
+    .sliceButton{
+      font-size: 30px;
+      border-radius: 4px;
+    }
+    #base{
+    	width: 150px;
+    	height: 10px;
+    	background-color: black;
+    	position: fixed;
+    	top: 400px;
+    	left: 725px;
+    }
+    #line{
+    	width: 150px;
+    	height: 10px;
+    	background-color: black;
+    	position: fixed;
+    	top: 400px;
+    	left: 725px;
+    }
+    #AngleNumber{
+      color: white;
+      position: fixed;
+      left: 900px;
+      top: 350px;
+      font-size: 32px;
+    }
+    #next{
+        position: fixed;
+        top: 700px;
+        left: 1100px;
+        color: white;
+        font-size: 48px;
+      }
+      #back{
+        position: fixed;
+        top: 700px;
+        left: 200px;
+        color: white;
+        font-size: 48px;
+      }
+  </style>
+</head>
+<body>
+
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="final_project_home.html">Start</a>
+  <a href="video.html">Introduction for angles</a>
+  <a href="angle.html">Play with angles</a>
+  <a href="quiz.html">Quiz</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()">Menu</span>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+ 
+   <main>
+    <div class="vertical container blackboard">
+
+       <div class="title text">Let's cut some pizza!</div>
+       <img id="pizzaImg" src="img/pizza.png" width=300px alt="Pizza Image"/>
+       <div class="question text">How many slices do you want?</div>
+       <div class="container" id="sliceBtnGroup"></div>
+    </div>
+    <div id="base"></div>
+    <div id="line"></div> 
+    <p id="AngleNumber"></p>
+
+   
+    <a href="quiz.html" id="next">Next</a>
+    <a href="slidebar.html" id="back">Back</a>
+
+
+  </main>
+  
+</div>
+  
+
+</body>
+<script type="text/javascript">
+
+
+	const line = document.querySelector("#line");
+	let createSliceBtns = (listSlices) => {
+  		const btnGroupEle = document.querySelector('#sliceBtnGroup');
+  		for(let i = 0, len=listSlices.length; i < len; i++){
+    	let sliceBtn = document.createElement('button');
+	    sliceBtn.setAttribute('class', 'sliceButton');
+	    sliceBtn.setAttribute('value', listSlices[i]);
+	    sliceBtn.setAttribute('id', `btn${i}`);
+	    sliceBtn.innerHTML = listSlices[i];
+	    btnGroupEle.appendChild(sliceBtn);
+  		}
+	}
+	createSliceBtns([2, 4, 6, 8, 10, 12, 18]);
+	
+
+	const btn_zero = document.querySelector("#btn0");
+  const btn_one = document.querySelector("#btn1");
+  const btn_two = document.querySelector("#btn2");
+  const btn_three = document.querySelector("#btn3");
+  const btn_four = document.querySelector("#btn4");
+  const btn_five = document.querySelector("#btn5");
+  const btn_six = document.querySelector("#btn6");
+  const AngleNumber = document.querySelector("#AngleNumber");
+
+  let RotateAngleZero = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(180deg);');
+    AngleNumber.innerHTML = "180 deg";
+   }
+  let RotateAngleOne = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(90deg);');
+    AngleNumber.innerHTML = "90 deg";
+  }
+
+  let RotateAngleTwo = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(60deg);');
+    AngleNumber.innerHTML = "60 deg";
+   }
+
+   let RotateAngleThree = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(45deg);');
+    AngleNumber.innerHTML = "45 deg";
+   }
+
+   let RotateAngleFour = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(36deg);');
+    AngleNumber.innerHTML = "36 deg";
+   }
+
+   let RotateAngleFive = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(30deg);');
+    AngleNumber.innerHTML = "30 deg";
+   }
+
+   let RotateAngleSix = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(20deg);');
+    AngleNumber.innerHTML = "20 deg";
+   }
+
+	btn_zero.addEventListener("click" , RotateAngleZero);
+  btn_one.addEventListener("click" , RotateAngleOne);
+  btn_two.addEventListener("click" , RotateAngleTwo);
+  btn_three.addEventListener("click" , RotateAngleThree);
+  btn_four.addEventListener("click" , RotateAngleFour);
+  btn_five.addEventListener("click" , RotateAngleFive);
+  btn_six.addEventListener("click" , RotateAngleSix);
+
+  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+
+</script>
+</html>

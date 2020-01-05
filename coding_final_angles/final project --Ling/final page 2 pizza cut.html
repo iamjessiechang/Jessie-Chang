@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    body{      
+      background-image: url("backgroundpic.JPEG");    
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position:center;
+      width:1440px;
+      height:700px; 
+    }
+    .container{
+      display: flex;
+    }
+    .vertical{
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .blackboard{
+      width: 70vw;
+      height: 40vw;
+      margin-left: 15vw;
+      margin-top: 10vw;
+    }
+    .text{
+      color: white;
+    }
+    .title{
+      align-self: flex-start;
+      font:Times New Roman;
+      font-style: italic;
+      font-size: 50px;
+    }
+    .question{
+      font-size: 30px;
+    }
+    .sliceButton{
+      font-size: 30px;
+      border-radius: 4px;
+    }
+    #base{
+    	width: 150px;
+    	height: 10px;
+    	background-color: black;
+    	position: fixed;
+    	top: 350px;
+    	left: 725px;
+    }
+    #line{
+    	width: 150px;
+    	height: 10px;
+    	background-color: black;
+    	position: fixed;
+    	top: 350px;
+    	left: 725px;
+    }
+    #AngleNumber{
+      color: white;
+      position: fixed;
+      left: 900px;
+      top: 350px;
+      font-size: 32px;
+    }
+    #next{
+        position: fixed;
+        top: 700px;
+        left: 1100px;
+        color: white;
+        font-size: 48px;
+      }
+      #back{
+        position: fixed;
+        top: 700px;
+        left: 200px;
+        color: white;
+        font-size: 48px;
+      }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="vertical container blackboard">
+
+	     <div class="title text">Let's cut some pizza!</div>
+	     <img id="pizzaImg" src="img/pizza.png" width=300px alt="Pizza Image"/>
+	     <div class="question text">How many slices do you want?</div>
+	     <div class="container" id="sliceBtnGroup"></div>
+    </div>
+    <div id="base"></div>
+    <div id="line"></div> 
+    <p id="AngleNumber"></p>
+
+   
+    <a href="quiz.html" id="next">Next</a>
+    <a href="slidebar.html" id="back">Back</a>
+
+
+  </main>
+
+</body>
+<script type="text/javascript">
+
+
+	const line = document.querySelector("#line");
+	let createSliceBtns = (listSlices) => {
+  		const btnGroupEle = document.querySelector('#sliceBtnGroup');
+  		for(let i = 0, len=listSlices.length; i < len; i++){
+    	let sliceBtn = document.createElement('button');
+	    sliceBtn.setAttribute('class', 'sliceButton');
+	    sliceBtn.setAttribute('value', listSlices[i]);
+	    sliceBtn.setAttribute('id', `btn${i}`);
+	    sliceBtn.innerHTML = listSlices[i];
+	    btnGroupEle.appendChild(sliceBtn);
+  		}
+	}
+	createSliceBtns([2, 4, 6, 8, 10, 12, 18]);
+	
+
+	const btn_zero = document.querySelector("#btn0");
+  const btn_one = document.querySelector("#btn1");
+  const btn_two = document.querySelector("#btn2");
+  const btn_three = document.querySelector("#btn3");
+  const btn_four = document.querySelector("#btn4");
+  const btn_five = document.querySelector("#btn5");
+  const btn_six = document.querySelector("#btn6");
+  const AngleNumber = document.querySelector("#AngleNumber");
+
+  let RotateAngleZero = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(180deg);');
+    AngleNumber.innerHTML = "180 deg";
+   }
+  let RotateAngleOne = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(90deg);');
+    AngleNumber.innerHTML = "90 deg";
+  }
+
+  let RotateAngleTwo = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(60deg);');
+    AngleNumber.innerHTML = "60 deg";
+   }
+
+   let RotateAngleThree = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(45deg);');
+    AngleNumber.innerHTML = "45 deg";
+   }
+
+   let RotateAngleFour = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(36deg);');
+    AngleNumber.innerHTML = "36 deg";
+   }
+
+   let RotateAngleFive = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(30deg);');
+    AngleNumber.innerHTML = "30 deg";
+   }
+
+   let RotateAngleSix = () =>{
+    line.setAttribute('style', 'transform-origin:left; transform:rotate(20deg);');
+    AngleNumber.innerHTML = "20 deg";
+   }
+
+	btn_zero.addEventListener("click" , RotateAngleZero);
+  btn_one.addEventListener("click" , RotateAngleOne);
+  btn_two.addEventListener("click" , RotateAngleTwo);
+  btn_three.addEventListener("click" , RotateAngleThree);
+  btn_four.addEventListener("click" , RotateAngleFour);
+  btn_five.addEventListener("click" , RotateAngleFive);
+  btn_six.addEventListener("click" , RotateAngleSix);
+
+</script>
+</html>

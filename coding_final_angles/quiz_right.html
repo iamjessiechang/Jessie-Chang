@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>quiz</title>
+	<style type="text/css">
+
+		/* The side navigation menu */
+	  .sidenav {
+	    height: 100%; /* 100% Full-height */
+	    width: 0; /* 0 width - change this with JavaScript */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Stay on top */
+	    top: 0;
+	    left: 0;
+	    background-color: #111; /* Black*/
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    padding-top: 60px; /* Place content 60px from the top */
+	    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	  }
+
+	  /* The navigation menu links */
+	  .sidenav a {
+	    padding: 8px 8px 8px 32px;
+	    text-decoration: none;
+	    font-size: 18px;
+	    color: #818181;
+	    display: block;
+	    transition: 0.3s;
+	  }
+
+	  /* When you mouse over the navigation links, change their color */
+	  .sidenav a:hover {
+	    color: #f1f1f1;
+	  }
+
+	  /* Position and style the close button (top right corner) */
+	  .sidenav .closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 36px;
+	    margin-left: 50px;
+	  }
+
+	  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+	  #main {
+	    transition: margin-left .5s;
+	    padding: 20px;
+	  }
+
+	  span{
+	      font:Times New Roman;
+	      font-size: 20px;
+	      color:white;
+	  }
+		body{
+			background-image: url("quiz.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 1440px;
+			height: 700px;
+		}
+		#question{
+			top: 150px;
+			left: 500px;
+			position: fixed;
+			color: white;
+			font-size: 36px;
+		}
+
+		#options{
+			width: 700px;
+			position: fixed;
+			left: 400px;
+			top: 300px;
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 70px;
+
+		}
+
+		#answerzone{
+			position: fixed;
+			left: 520px;
+			top: 460px;
+			/*display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;*/
+			height: 450px;
+			font-size: 32px;
+			margin: 0px;
+			
+		}
+
+		#AnswerAcute{
+			width: 400px;
+			height: 80px;
+			border-style: solid;
+			border-radius: 10px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			background-color: rgb(179, 203, 230);
+			box-shadow: 3px 3px rgb(160, 160, 160);
+			
+		}
+		#result{
+			text-align: center;
+			color: white;
+		}
+
+		#obtuseangle{
+			width: 200px; 
+			height: 150px;
+
+		}
+
+		#acuteangle{
+			width: 200px; 
+			height: 110px;
+		}
+
+		#rightangle{
+			width: 200px; 
+			height: 110px;
+
+		}
+		#next{
+	      position: fixed;
+	      top: 700px;
+	      left: 1100px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	    #back{
+	      position: fixed;
+	      top: 700px;
+	      left: 200px;
+	      color: white;
+	      font-size: 48px;
+	    }
+	</style>
+</head>
+<body>
+
+	<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="final_project_home.html">Start</a>
+  <a href="video.html">Introduction for angles</a>
+  <a href="angle.html">Play with angles</a>
+  <a href="quiz.html">Quiz</a>
+</div>
+
+<!-- Use any element to open the sidenav -->
+<span onclick="openNav()">Menu</span>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+ 
+   <h2 id="question">Choose the right angle</h2>
+	<div id="options">
+		<img src="obtuseangle.png" id="obtuseangle" draggable="true" class="img">
+		<img src="pizza.png" id="acuteangle" draggable="true" class="img">
+		<img src="right.jpeg" id="rightangle" draggable="true" class="img">
+	</div>
+
+	<div id="answerzone">
+		<div id="AnswerAcute" class="answer">Drag your answer here</div>
+		<h1 id="result"></h1>
+	</div>
+
+	<a href="quiz_acute.html" id="next">Next</a>
+   	<a href="quiz.html" id="back">Back</a>
+  
+</div>
+	
+
+	<script type="text/javascript">
+		const acuteangle = document.querySelector("#acuteangle");
+		const rightangle = document.querySelector("#rightangle");
+		const obtuseangle = document.querySelector("#obtuseangle");
+		
+		const AnswerAcute = document.querySelector("#AnswerAcute");
+
+		const answerzone = document.querySelector("#answerzone");
+
+		const result = document.querySelector("#result");
+
+		let DragStart =(event) =>{
+			event.dataTransfer.setData('text', event.currentTarget.id);
+			console.log(`-----start drag: ${event.currentTarget.id}------`);
+		}
+
+		let DragOver = (event) =>{
+			event.preventDefault();
+			console.log(`-----start drag: ${event.currentTarget.id}------`);
+		}
+
+		let	DragStop =(event) =>{
+			console.log(`-----drop: ${event.currentTarget.id}------`);
+
+			let droppedData = event.dataTransfer.getData('text');
+			
+			if(droppedData == "rightangle"){
+				result.innerHTML = "Correct!!!";
+			}else{
+				result.innerHTML = "Try again!!";
+			};
+		}
+
+		acuteangle.addEventListener("dragstart", DragStart);
+		rightangle.addEventListener("dragstart", DragStart);
+		obtuseangle.addEventListener("dragstart", DragStart);
+
+
+		AnswerAcute.addEventListener("dragover", DragOver);
+
+		AnswerAcute.addEventListener("drop", DragStop);
+
+		/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+	  function openNav() {
+	    document.getElementById("mySidenav").style.width = "250px";
+	    document.getElementById("main").style.marginLeft = "250px";
+	  }
+
+	  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+	  function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	    document.getElementById("main").style.marginLeft = "0";
+	  }
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

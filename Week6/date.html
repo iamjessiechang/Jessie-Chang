@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	let today = new Date();
+	console.log(today);
+
+	let date = today.getDate();
+	console.log(date);
+
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" , "Oct", "Nov", "Dec"];
+
+	let month = today.getMonth();
+	console.log(months[month]);
+
+	let colors = ["red", "blue", "green", "yellow", "black", "white"];
+	for(var i = 0; i< colors.length; i++ )
+	{
+		console.log(`I like the color ${colors[i]}`)
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<input type="text" id="nameInput"  placeholder="add name">
+	<input type="text" id="colorInput" placeholder="add color">
+	<button id="createBtn">Create New</button>
+
+	<ul id="colorList"></ul>
+	<script type="text/javascript">
+		
+
+
+		let favColors = [
+			{
+				name:"Jess",
+				color: "blue"
+			},
+			{
+				name:"Jason",
+				color: "black"
+			}
+		];
+
+		const colorList = document.querySelector("#colorList");
+
+		const nameInput = document.querySelector("#nameInput");
+		const colorInput = document.querySelector("#colorInput");
+		const createBtn = document.querySelector("#createBtn");
+
+
+
+		let addNewColor = () => {
+			 createFavColor(nameInput.value,  colorInput.value);
+		}
+
+		createBtn.addEventListener("click", addNewColor);
+
+		
+		let createFavColor = (name, favColor) => {
+			// console.log(`Hello ${name}. My fav color is ${favColors}`);
+			const listItem = document.createElement("li");
+		 	listItem.innerHTML = `Hello, my name is ${name}. My favorite color is ${favColor}.`;
+			colorList.appendChild(listItem);
+		
+		}
+
+
+		for( let x=0; x < favColors.length; x++){
+			createFavColor (favColors[x].name, favColors[x].color) ;
+
+			// console.log(`Hello, my name is ${favColors[x].name}. My favorite color is ${favColors[x].color}.`);
+			// const listItem = document.createElement("li");
+			// colorList.appendChild(listItem);
+			// listItem.innerHTML = `Hello, my name is ${favColors[x].name}. My favorite color is ${favColors[x].color}.`;
+		}
+
+
+		 // createFavColor("Jason", "black");
+		 // createFavColor("Jess", "blue");
+		 // createFavColor("Sara", "green");
+
+
+
+		
+	</script>
+</body>
+</html>

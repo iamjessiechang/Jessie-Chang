@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>quiz</title>
+	<style type="text/css">
+		body{
+			background-image: url("quiz.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 1440px;
+			height: 700px;
+		}
+		#question{
+			top: 150px;
+			left: 500px;
+			position: fixed;
+			color: white;
+			font-size: 36px;
+		}
+
+		#options{
+			width: 700px;
+			position: fixed;
+			left: 400px;
+			top: 300px;
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 70px;
+
+		}
+
+		#answerzone{
+			position: fixed;
+			left: 520px;
+			top: 460px;
+			/*display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;*/
+			height: 450px;
+			font-size: 32px;
+			margin: 0px;
+			
+		}
+
+		#AnswerAcute{
+			width: 400px;
+			height: 80px;
+			border-style: solid;
+			border-radius: 10px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			background-color: rgb(179, 203, 230);
+			box-shadow: 3px 3px rgb(160, 160, 160);
+			
+		}
+		#result{
+			text-align: center;
+			color: white;
+		}
+
+		#obtuseangle{
+			width: 200px; 
+			height: 150px;
+
+		}
+
+		#acuteangle{
+			width: 200px; 
+			height: 110px;
+		}
+
+		#rightangle{
+			width: 200px; 
+			height: 110px;
+
+		}
+	</style>
+</head>
+<body>
+	<h2 id="question">Choose the right angle</h2>
+	<div id="options">
+		<img src="obtuseangle.png" id="obtuseangle" draggable="true" class="img">
+		<img src="pizza.png" id="acuteangle" draggable="true" class="img">
+		<img src="right.jpeg" id="rightangle" draggable="true" class="img">
+	</div>
+
+	
+	
+	<div id="answerzone">
+		<div id="AnswerAcute" class="answer">Drag your answer here</div>
+		<h1 id="result"></h1>
+	</div>
+
+	
+
+	<script type="text/javascript">
+		const acuteangle = document.querySelector("#acuteangle");
+		const rightangle = document.querySelector("#rightangle");
+		const obtuseangle = document.querySelector("#obtuseangle");
+		
+		const AnswerAcute = document.querySelector("#AnswerAcute");
+
+		const answerzone = document.querySelector("#answerzone");
+
+		const result = document.querySelector("#result");
+
+		let DragStart =(event) =>{
+			event.dataTransfer.setData('text', event.currentTarget.id);
+			console.log(`-----start drag: ${event.currentTarget.id}------`);
+		}
+
+		let DragOver = (event) =>{
+			event.preventDefault();
+			console.log(`-----start drag: ${event.currentTarget.id}------`);
+		}
+
+		let	DragStop =(event) =>{
+			console.log(`-----drop: ${event.currentTarget.id}------`);
+
+			let droppedData = event.dataTransfer.getData('text');
+			
+			if(droppedData == "rightangle"){
+				result.innerHTML = "Correct!!!";
+			}else{
+				result.innerHTML = "Try again!!";
+			};
+		}
+
+		acuteangle.addEventListener("dragstart", DragStart);
+		rightangle.addEventListener("dragstart", DragStart);
+		obtuseangle.addEventListener("dragstart", DragStart);
+
+
+		AnswerAcute.addEventListener("dragover", DragOver);
+
+		AnswerAcute.addEventListener("drop", DragStop);
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

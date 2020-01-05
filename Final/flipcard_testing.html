@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flipcard</title>
+	<style type="text/css">
+		#contant{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.flipcard{
+			background-color: transparent;
+			width: 384px;	
+			height: 216px;
+			perspective: 1000px;
+		}
+
+		.flipcard-inner{
+			position: relative;
+  			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 1s;
+			transform-style: preserve-3d;
+		}
+
+		.flipcard:hover .flipcard-inner{
+			transform: rotateY(180deg);
+		}
+
+		.front , .back{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.back{
+			background-color: lightgrey;
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>test test test </h1>
+	<p>Hover to flip the card</p>
+	<div id="contant">
+
+		
+		<div class="flipcard">
+			<div class="flipcard-inner">
+				<div class="front">
+					<img src="iron_man.jpg" style="width: 384px; height: 216px;">
+				</div>
+
+				<div class="back">
+					<img src="RDJ.jpg" style="width: 384px; height: 216px;">
+				</div>
+			</div>
+		</div>
+
+		<div class="flipcard">
+			<div class="flipcard-inner">
+				<div class="front">
+					<img src="captanA.jpg" style="width: 384px; height: 216px;">
+				</div>
+
+				<div class="back">
+					<img src="CE.jpg" style="width: 384px; height: 216px;">
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

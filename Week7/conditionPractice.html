@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#feedback{
+			display: none;
+		}
+
+		#feedback.active{
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="feedback">
+		hello
+
+	</div>
+	<script type="text/javascript">
+		
+		let scores = ["83", "93", "53"];
+
+
+		for(let i = 0; i , scores.length; i++){
+
+			let score = scores[i];
+
+			if(score < 60){
+			console.log("F");
+		} else if(score < 70){
+			console.log("D");
+		} else if(score < 80){
+			console.log("C");
+		}else if(score < 90){
+			console.log("B");
+		}else if(score < 100){
+			console.log("A");
+		}
+		}
+		
+
+	</script>
+</body>
+</html>
